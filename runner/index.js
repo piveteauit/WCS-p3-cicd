@@ -19,7 +19,7 @@ const server = http.createServer(function(request, response) {
         )
       })
 
-      response.end({ok: true, body})
+      response.end(JSON.stringify({ok: true, body}))
     })
   }
 })
