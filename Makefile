@@ -9,10 +9,10 @@ adt:
 	cd /home/ubuntu/projects/adt && \
 	git pull && \
 	npm run build --prefix=frontend && \
-	pm2 restart api-inovin
+	pm2 restart api-adt
 makesense:
 	echo 'Building makesense...'
 	cd /home/ubuntu/projects/makesense && \
 	git pull && \
 	npm run build --prefix=client && \
-	pm2 restart api-inovin
+	pm2 restart api-makesense
