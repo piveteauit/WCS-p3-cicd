@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Github - Ajout d'un Webhook </title>
+        <style>
+            body {
+                padding: 40px;
+            }
+            img {
+                border: 3px solid gray;
+                border-radius: 5px;
+                max-width: 1280px; 
+                height: auto;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <main style="margin: auto; max-width: 1280px;">
+            <div style="text-align: center;">
+                <h1> Ajouter un webhook sur Github </h1>
+                <a href="https://docs.github.com/en/webhooks-and-events/webhooks/about-webhooks">A propos des Webhooks</a>
+            </div>
+
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+    
+                <h2> Partie 1 </h2>
+                <ol style="list-style: none; gap: 1em; display: flex; flex-direction: column; ">
+                    <li>
+                        1 - Depuis le repo, aller dans Settings
+                    </li>
+                    <li>
+                        2 - Ensuite aller dans Webhooks
+                    </li>
+                    <li>
+                        3 - Cliquer ensuite sur Ajouter un webhook
+                    </li>
+                </ol>
+                <img src="images/github-webhook-part-1.jpg" />
+            </div>
+    
+            <div style="margin-top: 50px; display: flex; flex-direction: column; justify-content: center;">
+    
+                <h2> Partie 2 </h2>
+                <ol style="list-style: none; gap: 1em; display: flex; flex-direction: column; ">
+                    <li>
+                        1 - Pour le payload url, utiliser: 
+                        <a style="margin-left: 10px;" href="https://btz-dev.fr/cicd/">https://btz-dev.fr/cicd/</a>
+                        
+                    </li>
+                    <li>
+                        2 - Pour le content-type, chosir application/json
+                    </li>
+                    <li>
+                        3 - Conserver la vérification SSL    
+                    </li>
+                    <li>
+                        4 - Pour les events, utiliser seulement les évênements push    
+                    </li>
+                    <li>
+                        5 - Bien vérifier que la checkbox "Active" est on
+                    </li>
+                    <li>
+                        6 - Valider le formulaire, et c'est tout bon
+                    </li>
+                </ol>
+                <img src="images/github-webhook-part-2.jpg" />
+            </div>
+        </main>
+        
+    </body>
+</html>
