@@ -16,18 +16,16 @@ function getProjectName(gitUrl) {
 const server = http.createServer(function(request, response) {
   if (request.method == 'POST') {
     let body = '';
-    let [unused, projectName] = request.url.split("/project/");
-    request.on('data', function(data) {
-      body += data
-    })
+    request.on('data', (data) => body += data)
     request.on('end', function() {
       response.writeHead(200, {'Content-Type': 'application/json'})
-      console.log(body)
+      body = JSON.parse(body)
       
       const projectName = getProjectName(body?.repository?.url);
 
-      if (!body?.ref?.includes('heads/main')) {
-        return response.end(JSON.stringify({ok: true, body}));
+      if (!projectName || (!body?.ref?.includes('heads/main') && !body?.ref?.includes('heads/master'))) {
+        
+        return response.end(JSON.stringify({status: "up to date"}));
       }
         exec(`sudo make ${projectName}`, (err, stdout, stderr) => {
             console.log(
@@ -36,7 +34,7 @@ const server = http.createServer(function(request, response) {
                 stderr
             )
 
-          response.end(JSON.stringify({ok: true, body}))
+          response.end(JSON.stringify({ok: true}))
 
         })
     })
