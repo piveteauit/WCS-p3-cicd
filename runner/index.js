@@ -42,6 +42,5 @@ const server = http.createServer(function(request, response) {
 })
 
 const port = 8443
-const host = 'localhost'
-server.listen(port, host)
-console.log(`Listening at http://${host}:${port}`)
+server.listen(port)
+console.log(`Listening on port: ${port}`)
